@@ -5,9 +5,13 @@ const productSchema = new mongoose.Schema({
   description: String,
   price: Number,
   quantity: Number,
-  category: String
+  category: {
+    type: String,
+    enum: ['Men', 'Women', 'Teens'],
+    required: true
+  }
 });
 
-const Product = mongoose.model('Product', productSchema);
+const Product = mongoose.model('Product', productSchema, 'product');
 
 module.exports = Product;

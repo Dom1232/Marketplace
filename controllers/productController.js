@@ -6,7 +6,7 @@ exports.getAllProducts = async (req, res) => {
     const products = await Product.find();
     res.json(products);
   } catch (error) {
-    res.status(500).json({ error: 'Internal Server Error' });
+    console.error(error);
   }
 };
 
@@ -19,7 +19,7 @@ exports.getProductById = async (req, res) => {
     }
     res.json(product);
   } catch (error) {
-    res.status(500).json({ error: 'Internal Server Error' });
+    console.error(error);
   }
 };
 
@@ -30,7 +30,7 @@ exports.addProduct = async (req, res) => {
     await product.save();
     res.status(201).json(product);
   } catch (error) {
-    res.status(400).json({ error: 'Bad Request' });
+    console.error(error);
   }
 };
 
@@ -43,7 +43,7 @@ exports.updateProductById = async (req, res) => {
     }
     res.json(product);
   } catch (error) {
-    res.status(400).json({ error: 'Bad Request' });
+    console.error(error);
   }
 };
 
